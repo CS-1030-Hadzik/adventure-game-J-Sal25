@@ -1,5 +1,10 @@
 # welcome messange and introduction
 # THis is a text based adventure game  
+'''Adventure Game 
+Author: Josue Salazar 
+Version : 1.0
+Description: This is a text-based adventure game where the player makes choices to navigate through a mysterious forest
+'''
 print("Welcome to the Adventure Game!")
 print("Your journey begins here...") 
 
@@ -11,8 +16,7 @@ print ("Welcome, " + player_name + "! Your journey begins now.")
 
 #use an f-string to display the same message in a more readable way 
 
-print (f"Welcome, {player_name}! Your journey begins now.
-")
+print (f"Welcome, {player_name}! Your journey begins now.")
 
 #describe the starting area 
 starting_area = """"
