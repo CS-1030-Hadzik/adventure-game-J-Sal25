@@ -31,12 +31,19 @@ starting_area = """" You Find yourself in a dark forest. The sound of rustling l
 print (starting_area)
 
 #ask the player for their first decison
-decision = input ("Do you wish to take the path? (yes or no): ").lower ()
+decision = input("Do you wish to take the path? (yes or no): ").lower ()
+
+
+#invalid reponse loop uintil they give a valid response
+while decision not in ["yes", "no"]:
+    print("invalid choice. PLease type 'yes' or 'no'.")
+    #option for the user to make a new decision
+    decision = input("Do you wish to take the path (yes or no):").lower()
 
 #respond based on the players decison 
-
 if decision == "yes":
     print(f"Brave choice, {player_name}! You step onto the path and venture forward.")
 elif decision == "no":
     print (player_name + ", you decide to wait. Perhaps courage will find you later.") #concatenation example
-else: print ("Confused, you stand still, unsure of what to do")
+
+
