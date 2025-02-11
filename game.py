@@ -48,6 +48,9 @@ while True:
     else:
         print("invalid choice, please choose 1, 2, or 3. ")
 
-
-
-
+# ask if thye want to continue 
+    play_again = input("Do you want to continue exploring? (Yes or no):").lower()
+    if play_again != "yes": 
+        print(f"Thanks for playing, {player_name}"
+              "see you next time.")
+        break #exit the loop and end the game 
