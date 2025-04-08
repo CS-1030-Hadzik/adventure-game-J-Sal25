@@ -2,7 +2,7 @@
 DOCSTRING
 Adventure Game
 Author: Scott Hadzik
-Version: 1.0
+Version: 2.0
 Description:
 This is a text-based adventure game where the player makes choices
 to navigate through a mysterious forest.
@@ -20,12 +20,6 @@ class Player:
         self.has_map = False
         self.has_lantern = False
 
-
-# TODO: (Optional Stretch) Add a check before certain choices
-#       - Example: If player.has_lantern is False, prevent entering a cave
-#       - Print a message like “It’s too dark to continue without a lantern.”
-
-# TODO: Update all print statements that used player_name to use player.name
 
 # TODO: Commit and push your code with a message like:
 #       REF player class added and game state flags implemented
@@ -74,23 +68,26 @@ while True:
     print("\nYou see several paths ahead:")
     print("\t1. Take the left path into the dark woods.")
     print("\t2. Take the right path toward the mountain pass.")
-    print("\t3. Stay where you are.")
-    print("\t4. Type 'i' to check your inventory.")
+    print("\t3. Head straight into the cave.")
+    print("\t4. Stay where you are.")
+    print("\t5. Type 'i' to check your inventory.")
 
-    decision = input("What will you do (1,2,3 or i): ").lower()
+    decision = input("What will you do (1,2,3, 4 or i): ").lower()
+# open the inventory
+
 
     if decision == "i":
         print("Inventory",player.inventory) 
         continue # Skip to the next iteration of the loop
 
-
+#take the left path  - Dark woords
     if decision == "1":
         print(f"{player.name}, you step into the dark woods."
               "The trees whisper as walk deeper.")
         add_to_inventory("lantern")
         player.has_lantern = True
         
-
+#take the right path - Mountain 
     elif decision == "2":
         print(f"{player.name}, you make your way "
               "towards the mountain pass, feeling "
@@ -99,6 +96,15 @@ while True:
         player.has_map = True
 
     elif decision == "3":
+        if player.has_lantern == False:
+            print("It's too dark to continue without a lantern.")
+        else:
+            print(f"{player.name}, bravely enter the dark cave")
+            print(f"Inside the cave, you find hidden treasure.")
+
+
+#stay where you are 
+    elif decision == "4":
         print("You stay still, listening to the "
               "distant sounds of the forest")
     else:
