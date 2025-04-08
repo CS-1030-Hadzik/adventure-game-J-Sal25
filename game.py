@@ -99,7 +99,7 @@ while True:
         print(f"{player.name}, you make your way "
               "towards the mountain pass, feeling "
               "the cold wind against your face.")
-        add_to_inventory("map")
+        add_to_inventory(player, "map")
         player.has_map = True
 
     elif decision == "3":
@@ -109,7 +109,7 @@ while True:
             print(f"{player.name}, bravely enter the dark cave")
             print(f"Inside the cave, you find hidden treasure.")
             player.has_treasure = True
-            add_to_inventory("treasure)")
+            add_to_inventory(player, "treasure)")
 
 
     elif decision == "4":
@@ -118,7 +118,7 @@ while True:
         else:
             print("""{player.name}, you follow the map to find the hidden valley
                   and stumble upon some rare herbs.""")
-            add_to_inventory("rare herbs")
+            add_to_inventory(player, "rare herbs")
             player.has_herbs = True
             print("Herbs have been added to your inventory.")
 
@@ -129,7 +129,7 @@ while True:
               "distant sounds of the forest")
     else:
         print("Invalid choice. Please choose "
-              "1, 2, or 3.")
+              "1, 2, 4, or 5.")
    
     # Ask if they want to continue
     play_again = input("Do you want to continue "
