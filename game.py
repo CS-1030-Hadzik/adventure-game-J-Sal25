@@ -7,6 +7,24 @@ Description:
 This is a text-based adventure game where the player makes choices
 to navigate through a mysterious forest.
 '''
+
+
+
+
+# TODO: Add a new menu option for "Search for a hidden valley"
+# TODO: In the cave choice:
+#       - If player.has_lantern is True: allow entry and add "treasure" to inventory
+#       - Else: display a message that it’s too dark
+# TODO: In the valley choice:
+#       - If player.has_map is True: allow entry and add "rare herbs" to inventory
+#       - Else: display a message that you can’t find the valley
+# TODO: After picking up new items, confirm to the player they got it
+# TODO: Save your changes (Ctrl+S or Command+S)
+# TODO: Commit with a message like:
+#       REF unlock new areas based on inventory items
+# TODO: Push your commits to GitHub
+
+
 #---------------------------------------------------------------
 #player class to store player info and game state
 #---------------------------------------------------------------
@@ -19,18 +37,6 @@ class Player:
         self.health = 100
         self.has_map = False
         self.has_lantern = False
-
-
-# TODO: Commit and push your code with a message like:
-#       REF player class added and game state flags implemented
-
-
-
-# TODO: Define a function called welcome_player() that:
-#       - Prints a welcome message
-#       - Asks the user for their name using input()
-#       - Welcomes the user using an f-string
-#       - Returns the player's name
 
 #---------------------------------------------------------------
 # Function: welcome_player
@@ -69,8 +75,9 @@ while True:
     print("\t1. Take the left path into the dark woods.")
     print("\t2. Take the right path toward the mountain pass.")
     print("\t3. Head straight into the cave.")
-    print("\t4. Stay where you are.")
-    print("\t5. Type 'i' to check your inventory.")
+    print("\t4. Look for a hidden valley.")
+    print("\t5. Stay where you are.")
+    print("\t6. Type 'i' to check your inventory.")
 
     decision = input("What will you do (1,2,3, 4 or i): ").lower()
 # open the inventory
@@ -101,10 +108,23 @@ while True:
         else:
             print(f"{player.name}, bravely enter the dark cave")
             print(f"Inside the cave, you find hidden treasure.")
+            player.has_treasure = True
+            add_to_inventory("treasure)")
+
+
+    elif decision == "4":
+        if player.has_map == False:
+            print("You can't find the hidden valley without a map.")
+        else:
+            print("""{player.name}, you follow the map to find the hidden valley
+                  and stumble upon some rare herbs.""")
+            add_to_inventory("rare herbs")
+            player.has_herbs = True
+            print("Herbs have been added to your inventory.")
 
 
 #stay where you are 
-    elif decision == "4":
+    elif decision == "5":
         print("You stay still, listening to the "
               "distant sounds of the forest")
     else:
